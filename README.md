@@ -19,6 +19,8 @@
     ```
 4. Done! You can create a custom status line using a combination of `New-PwshElement` and `Write-PwshLine`.
 
+![Screenshot](https://raw.githubusercontent.com/veselink1/pwsh-line/master/Screenshots/Preview.png)
+
 ## Example Custom Status Line
 ```powershell
 function prompt {
