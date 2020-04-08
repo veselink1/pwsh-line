@@ -25,9 +25,9 @@
 ```powershell
 function prompt {
     Write-PwshLine -NoNewLine -Separator (New-PwshSeparator "▓") -Segments @(
-        (New-PwshSegment (Get-UserString) -ForegroundColor White -BackgroundColor DarkRed),
-        (New-PwshSegment (Get-LocationString) -ForegroundColor Black -BackgroundColor DarkBlue)
-        (New-PwshSegment (Get-VcsInfoString) -ForegroundColor Black -BackgroundColor Green)
+        (New-PwshSegment (Get-UserString) -F White -B DarkRed),
+        (New-PwshSegment (Get-LocationString) -F Black -B DarkBlue)
+        (New-PwshSegment (Get-VcsInfoString) -F Black -B Green)
     )
 }
 ```
