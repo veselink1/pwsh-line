@@ -14,7 +14,7 @@
     ```powershell
     Import-Module pwsh-line
     function prompt {
-        Write-PwshDefault
+        Write-DefaultPwshLine
     }
     ```
 4. Done! You can create a custom status line using a combination of `New-PwshElement` and `Write-PwshLine`.
@@ -24,9 +24,10 @@
 ## Example Custom Status Line
 ```powershell
 function prompt {
-    Write-PwshLine -NoNewLine -Elements @(
-        (New-PwshElement $env:UserName -ForegroundColor White -BackgroundColor DarkRed),
-        (New-PwshElement (Get-Location) -ForegroundColor Black -BackgroundColor DarkBlue)
+    Write-PwshLine -NoNewLine -Separator (New-PwshSeparator "▓") -Segments @(
+        (New-PwshSegment (Get-UserString) -ForegroundColor White -BackgroundColor DarkRed),
+        (New-PwshSegment (Get-LocationString) -ForegroundColor Black -BackgroundColor DarkBlue)
+        (New-PwshSegment (Get-VcsInfoString) -ForegroundColor Black -BackgroundColor Green)
     )
 }
 ```
