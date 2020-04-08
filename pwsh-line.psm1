@@ -260,10 +260,17 @@ function Get-ElevationString {
 
 function Get-LocationString {
     [CmdletBinding()]
-    param()
+    param(
+        [string] $CustomSeparator = $null
+    )
 
     $pwd = (Get-Location).ToString()
-    return $pwd.Replace($env:UserProfile, '~')
+    $pwd = $pwd.Replace($env:UserProfile, '~')
+
+    if ($CustomSeparator) {
+        $pwd = $pwd.Replace([System.IO.Path]::DirectorySeparatorChar.ToString(), $CustomSeparator)
+    }
+    return $pwd
 }
 
 function Get-VcsInfoString() {
